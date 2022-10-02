@@ -15,6 +15,14 @@ export default function Modal({ isCorrect, turn, solution }) {
           <h1>Nevermind!</h1>
           <p className="solution">{solution}</p>
           <p>Better luck next time</p>
+          <button
+            className="modalBtn"
+            onClick={() => {
+              window.location.reload();
+            }}
+          >
+            New Game?
+          </button>
         </div>
       )}
     </div>

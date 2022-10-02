@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
 import BackspaceOutlinedIcon from "@mui/icons-material/BackspaceOutlined";
-
 export default function Keypad({ usedKeys, handleKeyUp }) {
   const keypadKeys = [
     { key: "Q" },
@@ -23,14 +22,14 @@ export default function Keypad({ usedKeys, handleKeyUp }) {
     { key: "K" },
     { key: "L" },
     { key: "Z" },
-    { key: "Backspace" },
+    { key: "❌" },
     { key: "X" },
     { key: "C" },
     { key: "V" },
     { key: "B" },
     { key: "N" },
     { key: "M" },
-    { key: "Enter" },
+    { key: "✔️" },
   ];
   return (
     <div className="keypad">
@@ -41,17 +40,17 @@ export default function Keypad({ usedKeys, handleKeyUp }) {
             key={letter.key}
             className={color}
             onClick={() => {
-              if (letter.key === "Enter") {
-                handleKeyUp(letter);
-              } else if (letter.key === "Backspace") {
-                handleKeyUp(letter);
+              if (letter.key === "✔️") {
+                handleKeyUp({ key: "Enter" });
+              } else if (letter.key === "❌") {
+                handleKeyUp({ key: "Backspace" });
               } else {
                 let newLetter = { key: letter.key.toLowerCase() };
                 handleKeyUp(newLetter);
               }
             }}
           >
-            {letter.key == "Backspace" ? <BackspaceOutlinedIcon /> : letter.key}
+            {letter.key == "Backspace" ? "❌" : letter.key}
           </div>
         );
       })}

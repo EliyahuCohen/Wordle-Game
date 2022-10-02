@@ -4,26 +4,10 @@ import MenuIcon from "@mui/icons-material/Menu";
 import HelpOutlineOutlinedIcon from "@mui/icons-material/HelpOutlineOutlined";
 import InsertChartOutlinedIcon from "@mui/icons-material/InsertChartOutlined";
 import SettingsOutlinedIcon from "@mui/icons-material/SettingsOutlined";
-
+import { wordsArray } from "./words";
 function App() {
   const [solution, setSolution] = useState(null);
-  const array = [
-    { word: "ninga", id: 1 },
-    { word: "spade", id: 2 },
-    { word: "apple", id: 3 },
-    { word: "drive", id: 4 },
-    { word: "relax", id: 5 },
-    { word: "times", id: 6 },
-    { word: "train", id: 7 },
-    { word: "cores", id: 8 },
-    { word: "pours", id: 9 },
-    { word: "blame", id: 10 },
-    { word: "banks", id: 11 },
-    { word: "phone", id: 12 },
-    { word: "coins", id: 13 },
-    { word: "hello", id: 14 },
-    { word: "click", id: 15 },
-  ];
+  const array = wordsArray;
   useEffect(() => {
     const randomSolution = array[Math.floor(Math.random() * array.length)];
     setSolution(randomSolution.word); //because the random.. returns an object

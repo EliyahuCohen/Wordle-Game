@@ -1,22 +1,23 @@
-body{
+body {
   text-align: center;
   font-size: 1rem;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   margin: 0;
 }
-h1{
+h1 {
   font-size: 1.2rem;
   padding: 20px 0px;
-  border-bottom:1px solid #eee ;
+  border-bottom: 1px solid #eee;
   margin: 0 0 30px 0;
   color: #333;
 }
-.row{
+.row {
   text-align: center;
   display: flex;
   justify-content: center;
 }
-.row>div{
+.row > div {
   display: block;
   height: 60px;
   width: 60px;
@@ -28,78 +29,84 @@ h1{
   font-weight: bold;
   font-size: 2.5rem;
 }
-.row>div.green{
+.row > div.green {
   --background: #5ac85a;
   --border-color: #5ac85a;
-  animation:  flip 0.5s ease forwards;
+  animation: flip 0.5s ease forwards;
 }
-.row>div.grey {
+.row > div.grey {
   --background: #a1a1a1;
   --border-color: #a1a1a1;
   animation: flip 0.5s ease forwards;
 }
-.row>div.yellow {
+.row > div.yellow {
   --background: #e2cc68;
   --border-color: #e2cc68;
   animation: flip 0.5s ease forwards;
 }
-.row>div:nth-child(2){
+.row > div:nth-child(2) {
   animation-delay: 0.2s;
 }
-.row>div:nth-child(3) {
+.row > div:nth-child(3) {
   animation-delay: 0.4s;
 }
-.row>div:nth-child(4) {
+.row > div:nth-child(4) {
   animation-delay: 0.6s;
 }
-.row>div:nth-child(5) {
+.row > div:nth-child(5) {
   animation-delay: 0.8s;
 }
 /* animations */
-@keyframes flip{
-  0%{
+@keyframes flip {
+  0% {
     background: white;
-     transform: rotateX(0deg);
+    transform: rotateX(0deg);
   }
-  45%{
+  45% {
     background: white;
-      transform: rotateX(90deg);
+    transform: rotateX(90deg);
   }
-  55%{
+  55% {
     background: var(--background);
     border-color: var(--border-color);
-      transform: rotateX(90deg);
+    transform: rotateX(90deg);
   }
-  100%{
+  100% {
     background: var(--background);
     border-color: var(--border-color);
-      transform: rotateX(0deg);
+    transform: rotateX(0deg);
   }
 }
-.row>div.filled{
-  animation:bouns 0.2s ease forwards;
+.row > div.filled {
+  animation: bouns 0.2s ease forwards;
 }
-@keyframes bouns{
-  0%{
-  transition: 0.2s ease;
-  transform: scale(1);
+@keyframes bouns {
+  0% {
+    transition: 0.2s ease;
+    transform: scale(1);
   }
-  50%{
-  transition: 0.2s ease;
-  border:1px solid black;
-  transform: scale(1.2);
+  50% {
+    transition: 0.2s ease;
+    border: 1px solid black;
+    transform: scale(1.2);
   }
-  100%{
+  100% {
     transition: 0.2s ease;
     border: 1px solid black;
     transform: scale(1);
   }
 }
-.keypad{
+.keypad {
   max-width: 500px;
   margin: 20px auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }
-.keypad>div{
+.keypad > div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   margin: 5px;
   width: 40px;
   height: 50px;
@@ -107,76 +114,92 @@ h1{
   display: inline-block;
   cursor: pointer;
   border-radius: 4px;
-  line-height: 50px;/*very importent to center content without flexbox*/
+  line-height: 50px; /*very importent to center content without flexbox*/
 }
-.keypad>div.green {
+.backspaceKey {
+  font-weight: 900 !important;
+}
+.keypad > div.green {
   background: #5ac85a;
   color: #fff;
   transition: all 0.3 ease-in;
 }
 
-.keypad>div.grey {
+.keypad > div.grey {
   background: #a1a1a1;
   color: #fff;
   transition: all 0.3 ease-in;
 }
 
-.keypad>div.yellow {
+.keypad > div.yellow {
   background: #e2cc68;
   color: #fff;
   transition: all 0.3 ease-in;
 }
 .modal {
-  background: rgba(255,255,255,0.7);
+  background: rgba(255, 255, 255, 0.7);
   position: fixed;
   width: 100%;
   height: 100%;
   top: 0%;
   left: 0%;
 }
-.modal div{
+.modal div {
   max-width: 480px;
   background-color: #fff;
   padding: 40px;
   border-radius: 10px;
   margin: 10px auto;
-  box-shadow: 2px 2px 10px rgba(0,0,0,0.3);
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
 }
-.modal .solution{
+.modal p {
+  font-size: 1.2rem;
+}
+.modal .solution {
   color: #ff004c;
   font-weight: bold;
   font-size: 0.8em;
   text-transform: uppercase;
   letter-spacing: 1px;
+  font-size: 2rem;
 }
-*{
-    margin: 0;
-    padding: 0;
+* {
+  margin: 0;
+  padding: 0;
 }
-.navbar{
+.navbar {
   justify-content: space-between;
   display: flex;
   align-items: center;
 }
-.navbar h1{
+.navbar h1 {
   font-size: 1.7rem;
 }
-.navbarIn{
+.navbarIn {
   display: flex;
   justify-content: center;
   align-items: center;
   margin-bottom: 25px;
   padding: 0 20px;
 }
-@media (max-width:675px){
-  .keypad{
+@media (max-width: 675px) {
+  .keypad {
     width: 100%;
     margin: 20px auto;
     padding: 0;
     transform: scale(0.8);
   }
-  .keypad div{
+  .keypad div {
     padding: 0;
     transform: scale(0.8);
   }
+}
+.modalBtn {
+  padding: 0.5rem 1rem;
+  border: none;
+  margin-top: 0.3rem;
+  cursor: pointer;
+  text-transform: uppercase;
+  color: white;
+  background-color: #5ac85a;
 }
