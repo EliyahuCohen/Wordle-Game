@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { wordsArray } from "../words";
 
 const useWordle = (solution) => {
   const [turn, setTurn] = useState(0);
@@ -7,6 +8,7 @@ const useWordle = (solution) => {
   const [history, setHistory] = useState([]);
   const [isCorrect, setIsCorrect] = useState(false);
   const [usedKeys, setUsedKeys] = useState({}); //will have keys as object inside of this
+  const [errorMessage, setErrorMessage] = useState(false);
 
   //making every letter in the guess attempt to an object
   //of {key:'a', color:'yellow'} e.g
@@ -76,6 +78,7 @@ const useWordle = (solution) => {
   };
   //getting a keyboard event from the keyboard
   const handleKeyUp = ({ key }) => {
+    setErrorMessage(false);
     if (key === "Backspace") {
       setCurrentGuess((prev) => {
         return prev.slice(0, -1);
@@ -89,6 +92,11 @@ const useWordle = (solution) => {
       //and the last check if he typed 5 chars
       if (turn > 5) {
         console.log("you used all of your guesses for this day");
+        return;
+      }
+      const info = wordsArray.filter((one) => one.word == currentGuess)[0];
+      if (!info) {
+        setErrorMessage(true);
         return;
       }
       if (history.includes(currentGuess)) {
@@ -115,6 +123,15 @@ const useWordle = (solution) => {
 
   //at the end of all of the chcking we want to give back
   //some fidback and the result so we will do this by saying
-  return { turn, currentGuess, guesses, isCorrect, handleKeyUp, usedKeys };
+  return {
+    turn,
+    currentGuess,
+    guesses,
+    isCorrect,
+    handleKeyUp,
+    usedKeys,
+    errorMessage,
+    setErrorMessage,
+  };
 };
 export default useWordle;

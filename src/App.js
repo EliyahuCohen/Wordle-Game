@@ -5,9 +5,11 @@ import HelpOutlineOutlinedIcon from "@mui/icons-material/HelpOutlineOutlined";
 import InsertChartOutlinedIcon from "@mui/icons-material/InsertChartOutlined";
 import SettingsOutlinedIcon from "@mui/icons-material/SettingsOutlined";
 import { wordsArray } from "./words";
+import useWordle from "./hooks/useWordle";
 function App() {
   const [solution, setSolution] = useState(null);
   const array = wordsArray;
+
   useEffect(() => {
     const randomSolution = array[Math.floor(Math.random() * array.length)];
     setSolution(randomSolution.word); //because the random.. returns an object
@@ -22,6 +24,7 @@ function App() {
           <HelpOutlineOutlinedIcon />
         </div>
         <h1>wordle</h1>
+
         <div className="navbarIn">
           <InsertChartOutlinedIcon />
           <SettingsOutlinedIcon />
